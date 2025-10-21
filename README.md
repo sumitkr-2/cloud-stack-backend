@@ -1,82 +1,143 @@
-Cloud Stack Backend Project
+---
 
-This repository contains the backend server for the Cloud Stack project. It is built with Node.js, Express, and MongoDB and provides a set of REST APIs for user authentication and file handling.
+# 🌥️ Cloud Stack Backend Project
 
-✨ Features
+This repository contains the backend server for the **Cloud Stack** project. It is built with **Node.js**, **Express**, and **MongoDB**, and provides a set of REST APIs for user authentication and file handling.
 
-User Authentication: Secure user signup and login.
+---
 
-Database Integration: Connects to a MongoDB database to persist user data.
+## ✨ Features
 
-API Endpoints: Provides clear and functional endpoints for core features.
+* 🔐 **User Authentication**: Secure user signup and login functionality.
+* 🗃️ **Database Integration**: Connects to MongoDB to persist user data.
+* 📡 **API Endpoints**: Provides clear and functional REST APIs for core backend features.
+* ☁️ **Cloud-Ready**: Designed to be easily extended with cloud storage features in the future.
 
-Cloud-Ready: Designed to be easily extended with cloud storage features.
+---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Server: Node.js, Express.js
+| Layer       | Technology                   |
+| ----------- | ---------------------------- |
+| Server      | Node.js, Express.js          |
+| Database    | MongoDB (with Mongoose)      |
+| File Upload | Multer (multipart/form-data) |
 
-Database: MongoDB with Mongoose
+---
 
-File Handling: Multer for processing multipart/form-data
+## 🚀 Getting Started
 
-🚀 Getting Started
+Follow the instructions below to set up the project locally.
 
-Follow these instructions to get a local copy up and running.
+### ✅ Prerequisites
 
-Prerequisites
+* Node.js installed on your machine
+* A MongoDB Atlas account *(or a local MongoDB instance)*
 
-Node.js installed
+### 🔧 Installation & Setup
 
-A MongoDB Atlas account (or a local MongoDB server)
+1. **Clone the repository:**
 
-Installation & Setup
-
-Clone the repository:
-
-git clone [https://github.com/sumitkr-2/cloud-stack-backend.git](https://github.com/sumitkr-2/cloud-stack-backend.git)
+```bash
+git clone https://github.com/sumitkr-2/cloud-stack-backend.git
 cd cloud-stack-backend
+```
 
+2. **Install the dependencies:**
 
-Install NPM packages:
-
+```bash
 npm install
+```
 
+3. **Create a `.env` file** in the root directory and add your MongoDB connection string:
 
-Create a .env file in the root of the project and add your MongoDB connection string:
-
+```env
 MONGO_URI=your_mongodb_connection_string_here
+```
 
+4. **Start the server:**
 
-Start the server:
-
+```bash
 node index.js
+```
 
+The server will start at: **[http://localhost:5000](http://localhost:5000)**
 
-The server will be running on http://localhost:5000.
+---
 
-🧪 API Endpoints
+## 🧪 API Endpoints
 
-You can use a tool like Postman to test the endpoints.
+Use a tool like **Postman** or **Insomnia** to test the API routes.
 
-User Routes
+### 👤 User Routes
 
-POST /signup: Create a new user.
+#### 📩 `POST /signup`
 
-Body: {"username": "testuser", "password": "password123"}
+* **Description**: Register a new user.
+* **Request Body** (JSON):
 
-Success Response: {"message": "Signup successful!"}
+```json
+{
+  "username": "testuser",
+  "password": "password123"
+}
+```
 
-POST /login: Log in an existing user.
+* **Success Response**:
 
-Body: {"username": "testuser", "password": "password123"}
+```json
+{
+  "message": "Signup successful!"
+}
+```
 
-Success Response: {"message": "Login successful!"}
+---
 
-File Route
+#### 🔐 `POST /login`
 
-POST /uploadFile: Upload a file.
+* **Description**: Log in an existing user.
+* **Request Body** (JSON):
 
-Body: Form-data with a key file and a file selected.
+```json
+{
+  "username": "testuser",
+  "password": "password123"
+}
+```
 
-Success Response: {"message": "File uploaded successfully (stored locally)", "fileInfo": {...}}
+* **Success Response**:
+
+```json
+{
+  "message": "Login successful!"
+}
+```
+
+---
+
+### 📁 File Upload Route
+
+#### 📤 `POST /uploadFile`
+
+* **Description**: Upload a file.
+
+* **Request Body**: Use `form-data` with a key named `file` and attach a file.
+
+* **Success Response**:
+
+```json
+{
+  "message": "File uploaded successfully (stored locally)",
+  "fileInfo": {
+    // file metadata
+  }
+}
+```
+
+---
+
+## 📬 Contact
+
+Maintained by [@sumitkr-2](https://github.com/sumitkr-2)
+
+---
